@@ -11,9 +11,9 @@ const configStore = require('configstore');
 const process = require('process');
 
 const osWindows= process.platform.startsWith('win');
-const web= path.resolve(process.cwd() + (osWindows ? '/../web/dist/nicolas' : '/web'));
+const web= path.resolve(process.cwd() + (osWindows ? '/../web/dist' : '/web'));
 const files= path.resolve(process.cwd() + (osWindows ? '/../uploads' : '/uploads'));
-const port= osWindows ? 8080 : 80;
+const port= 8080;
 
 const io= require(osWindows ? './io-sim.js' : './io.js');
 

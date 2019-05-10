@@ -1,0 +1,27 @@
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs npm
+
+copy files in doorbell directory
+npm install
+
+IO Board:
+K2 (Oben)  11 -> GPIO17 wPi  0
+S1         13 -> GPIO27 wPi  2
+S2         15 -> GPIO22 wPi  3
+S3         29 -> GPIO5  wPi 21
+K3 (Unten) 31 -> GPIO6  wPi 22
+
+Autostart:
+sudo npm install forever -g
+copy jukebox -> /etc/init.d
+sudo chmod 755 /etc/init.d/jukebox
+
+sudo nano /etc/rc.local
+add line:
+iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+
+sudo update-rc.d jukebox defaults
