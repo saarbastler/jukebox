@@ -1,0 +1,28 @@
+<p>
+  <a [routerLink]="['/files']">
+    <i class="fa fa-music fa-2x fa-border" aria-hidden="true"></i>
+  </a>
+</p>
+
+<div style="position:relative;width:600px;margin:auto;">
+
+  <div style="position:absolute; top:0px; left:0px;"><img src="assets/talker.png"></div>
+
+  <div style="position:absolute; top:80px; left:250px;">
+    <p-dropdown [options]="fileList" placeholder="Sound" optionLabel="name" [(ngModel)]="actions[0]" (onChange)="setAction(0)" ></p-dropdown>
+  </div>
+  <div style="position:absolute; top:145px; left:250px;">
+    System herunterfahren
+  </div>
+  <div style="position:absolute; top:200px; left:250px;">
+    <p-dropdown [options]="fileList" placeholder="Sound" optionLabel="name" [(ngModel)]="actions[2]"  (onChange)="setAction(2)"></p-dropdown>
+  </div>
+  <div style="position:absolute; top:255px; left:250px;">
+    <p-dropdown [options]="fileList" placeholder="Sound" optionLabel="name" [(ngModel)]="actions[3]"  (onChange)="setAction(3)"></p-dropdown>
+  </div>
+  <div style="position:absolute; top:305px; left:250px;">
+    <p-dropdown [options]="fileList" placeholder="Sound" optionLabel="name" [(ngModel)]="actions[4]"  (onChange)="setAction(4)"></p-dropdown>
+  </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+<a [routerLink]="['/home']">
+  <i class="fa fa-home fa-2x fa-border" aria-hidden="true"></i>
+</a>
+<p-fileUpload name="file[]" url="./upload/" (onUpload)="onUpload($event)"></p-fileUpload>
+<p-dataList [value]="fileList">
+    <p-header>
+        MP3 Dateien
+    </p-header>
+    <ng-template let-file pTemplate="item">
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-1">
+          <button pButton type="button" icon="fa fa-play" (click)="playFile(file.name)" title="Testen"></button>
+        </div>
+        <div class="ui-g-1">
+          <button *ngIf="!file.active" pButton type="button" icon="fa fa-trash-o" (click)="deleteFile(file.name)" title="Löschen"></button>
+        </div>
+        <div class="ui-g-1">
+          <button *ngIf="!file.active" pButton type="button" icon="fa fa-bell-o" (click)="setActiveFile(file.name)" title="Aktivieren"></button>
+        </div>
+        <div class="ui-g-9">
+          {{file.name}}
+        </div>
+      </div>
+    </ng-template>
+</p-dataList>
+
